@@ -4,7 +4,7 @@ https://api.instagram.com/v1/media/search?lat=40.7128&lng=-74.0059&access_token=
 
 2. Click the "RESPONSE" button in the documentation to see a sample response for that API call. What key/value pairs would you need to use to find the number of "likes" a photo received? How many nested JSON objects would you need to traverse to find this information?  _(You don't need to write any code for this, just take a look at the structure of the JSON response and give a very quick description)_
 
-I would need to traverse 3 JSON objects to find this information and I would use the data, likes, count key/value pairs.
+I would need to traverse 3 JSON objects to find this information and I would use the "data", "likes", "count" key/value pairs.
 
 3. Pretend you've sorted the photos by how many "likes" they received. Now, you want to get a list of users that liked the top photo in your list. What URL would you use for an API call to get a list of users who liked a specific photo?
 
@@ -16,12 +16,23 @@ https://api.instagram.com/v1/users/{user-id}/relationship?access_token=ACCESS-TO
 
 5. In the previous question, we wanted to get the current user's relationshp to not just one other user, but to each user in a list. Could we gather this data with a single API call, or would we need to make multiple API calls? How can you tell
 
-We would need to 
+We would need to make multiple API calls as there is no single method to achieve what we want.
 
-6. Now, you want to see if anyone is tagging their photos as "gelato". What URL would you use for an API call to get a list of tags that contain the word "gelato"?
+6. Now, you want to see if anyone is tagging their photos as "macaron". What URL would you use for an API call to get a list of tags that contain the word "macaron"?
+
+https://api.instagram.com/v1/tags/search?q=macaron&access_token=ACCESS-TOKEN
 
 7. From the responses to your last call, what key/value pair would you use to determine which tag is the most popular?
 
+"data" and "media_count"
+
 8. Once you know the most popular tag, what URL would you use to get a list of recent photos that have that tag?
 
-9. Finally, you want to let your current user add a new comment to one of those photos tagged as "gelato". What URL would you use to add a comment to a specific photo? And what type of HTTP request would you need to use?
+https://api.instagram.com/v1/tags/{macaron}/media/recent?access_token=ACCESS-TOKEN
+
+9. Finally, you want to let your current user add a new comment to one of those photos tagged as "macaron". What URL would you use to add a comment to a specific photo? And what type of HTTP request would you need to use?
+
+https://api.instagram.com/v1/media/{media-id}/comments
+
+It is a post request.
+
